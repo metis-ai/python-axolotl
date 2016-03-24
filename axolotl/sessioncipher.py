@@ -85,7 +85,7 @@ class SessionCipher:
         self.sessionStore.storeSession(self.recipientId, self.deviceId, sessionRecord)
 
         if sys.version_info >= (3,0) and textMsg:
-            return plaintext.decode()
+            return plaintext.decode('latin-1').encode('utf-8')
         return plaintext
 
     def decryptPkmsg(self, ciphertext, textMsg=True):
@@ -103,7 +103,7 @@ class SessionCipher:
             self.preKeyStore.removePreKey(unsignedPreKeyId)
 
         if sys.version_info >= (3, 0) and textMsg:
-            return plaintext.decode()
+            return plaintext.decode('latin-1').encode('utf-8')
         return plaintext
 
     def decryptWithSessionRecord(self, sessionRecord, cipherText):
