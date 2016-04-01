@@ -88,7 +88,7 @@ class SessionCipher:
             try:
                 return plaintext.decode()
             except UnicodeDecodeError as e:
-                return plaintext.decode('latin-1').encode('utf-8')
+                return plaintext.decode('latin-1')
         return plaintext
 
     def decryptPkmsg(self, ciphertext, textMsg=True):
@@ -109,7 +109,7 @@ class SessionCipher:
             try:
                 return plaintext.decode()
             except UnicodeDecodeError as e:
-                return plaintext.decode('latin-1').encode('utf-8')
+                return plaintext.decode('latin-1')
         return plaintext
 
     def decryptWithSessionRecord(self, sessionRecord, cipherText):
