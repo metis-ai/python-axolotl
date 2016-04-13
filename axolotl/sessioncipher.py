@@ -285,4 +285,7 @@ class AESCipher:
             raise
 
     def decrypt(self, enc):
-        return self.unpad(self.unpad(self.cipher.decrypt(enc)))
+        try:
+            return self.unpad(self.unpad(self.cipher.decrypt(enc)))
+        except Exception as e:
+            return self.unpad(self.cipher.decrypt(enc))
